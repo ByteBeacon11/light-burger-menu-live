@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Light Burger & Chicken — Digital Menu</title>
 <meta name="description" content="A modern, motion-driven digital menu for Light Burger & Chicken." />
@@ -518,12 +521,12 @@ function saveJSON(key, val){
   try{ localStorage.setItem(key, JSON.stringify(val)); }catch(e){ console.warn('storage unavailable',e); }
 }
 
-let MENU = loadJSON('lb_menu_v2', DEFAULT_MENU.slice());
+let MENU = loadJSON('lb_menu_v3', DEFAULT_MENU.slice());
 if(!Array.isArray(MENU)) MENU = DEFAULT_MENU.slice();
 let NEXT_ID = MENU.reduce((a,b)=>Math.max(a,b.id||0),0)+1;
-let BG = loadJSON('lb_bg_v2', {});
+let BG = loadJSON('lb_bg_v3', {});
 if(typeof BG!=='object' || Array.isArray(BG)) BG = {};
-let CATEGORIES = loadJSON('lb_cats_v2', DEFAULT_CATS.map(c=>Object.assign({},c)));
+let CATEGORIES = loadJSON('lb_cats_v3', DEFAULT_CATS.map(c=>Object.assign({},c)));
 if(!Array.isArray(CATEGORIES)) CATEGORIES = DEFAULT_CATS.map(c=>Object.assign({},c));
 // merge defaults for missing
 if(!BG.all) BG.all = ALL_META.bg;
@@ -532,9 +535,9 @@ CATEGORIES.forEach(c=>{ if(!BG[c.slug]) BG[c.slug]=c.bg; });
 let catLabels = {}; CATEGORIES.forEach(c=>{ catLabels[c.slug]=c.title; });
 function rebuildCatLabels(){ catLabels = {}; CATEGORIES.forEach(c=>{ catLabels[c.slug]=c.title; }); }
 
-function saveMenu(){ saveJSON('lb_menu_v2', MENU); NEXT_ID = MENU.reduce((a,b)=>Math.max(a,b.id||0),0)+1; }
-function saveBg(){ saveJSON('lb_bg_v2', BG); }
-function saveCats(){ saveJSON('lb_cats_v2', CATEGORIES); }
+function saveMenu(){ saveJSON('lb_menu_v3', MENU); NEXT_ID = MENU.reduce((a,b)=>Math.max(a,b.id||0),0)+1; }
+function saveBg(){ saveJSON('lb_bg_v3', BG); }
+function saveCats(){ saveJSON('lb_cats_v3', CATEGORIES); }
 function getCat(slug){ if(slug==='all') return ALL_META; return CATEGORIES.find(c=>c.slug===slug) || {title:slug,sub:'',bg:'',icon:'📁'}; }
 const DEFAULT_SPECIALS = [
   {num:'01',title:'Double Volcano Burger',desc:'Two smash patties, ghost-pepper cheese, crispy onions, volcanic sauce.'},
@@ -542,12 +545,12 @@ const DEFAULT_SPECIALS = [
   {num:'03',title:'Midnight Combo',desc:'After 9pm: classic burger + chicken tenders + drink at a flat price.'},
 ];
 const DEFAULT_SIDES = ['Fries','Shakes','Salad','Dips','Cookies','Iced Tea'];
-let SPECIALS = loadJSON('lb_specials_v1', DEFAULT_SPECIALS.map(x=>Object.assign({},x)));
+let SPECIALS = loadJSON('lb_specials_v2', DEFAULT_SPECIALS.map(x=>Object.assign({},x)));
 if(!Array.isArray(SPECIALS)) SPECIALS = DEFAULT_SPECIALS.map(x=>Object.assign({},x));
-let SIDES = loadJSON('lb_sides_v1', DEFAULT_SIDES.slice());
+let SIDES = loadJSON('lb_sides_v2', DEFAULT_SIDES.slice());
 if(!Array.isArray(SIDES)) SIDES = DEFAULT_SIDES.slice();
-function saveSpecials(){ saveJSON('lb_specials_v1', SPECIALS); }
-function saveSides(){ saveJSON('lb_sides_v1', SIDES); }
+function saveSpecials(){ saveJSON('lb_specials_v2', SPECIALS); }
+function saveSides(){ saveJSON('lb_sides_v2', SIDES); }
 
 function addSection(){
   const name = prompt('New section name (e.g., Pizzas):');
