@@ -2,9 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Light Burger & Chicken — Digital Menu</title>
 <meta name="description" content="A modern, motion-driven digital menu for Light Burger & Chicken." />
@@ -322,27 +319,27 @@ const DEFAULT_CATS = [
   {slug:'desserts',title:'Desserts',sub:'Sweet endings, no regrets.',icon:'🍰',bg:'https://picsum.photos/seed/lb-desserts/1920/700'},
 ];
 const DEFAULT_MENU = [
-  {"id": 1, "cat": "burgers", "name": "Classic Smash", "emoji": "🍔", "desc": "Double smash patty, cheddar, pickles, secret sauce, toasted bun.", "price": 8.99, "tags": ["pop"]},
-  {"id": 2, "cat": "burgers", "name": "Bacon Inferno", "emoji": "🔥", "desc": "Beef patty, crispy bacon, pepper jack, jalapeños, chipotle mayo.", "price": 10.49, "tags": ["spicy", "pop"]},
-  {"id": 3, "cat": "burgers", "name": "Truffle Umami", "emoji": "🍄", "desc": "Wagyu patty, truffle aioli, gruyère, caramelised onions.", "price": 13.99, "tags": ["new"]},
-  {"id": 4, "cat": "burgers", "name": "Garden Light", "emoji": "🥬", "desc": "Plant-based patty, vegan cheese, avocado, herb dressing.", "price": 9.99, "tags": []},
-  {"id": 5, "cat": "burgers", "name": "BBQ Smokehouse", "emoji": "🥩", "desc": "Brisket blend, smoky BBQ, onion rings, coleslaw.", "price": 11.49, "tags": []},
-  {"id": 6, "cat": "chicken", "name": "Crispy Chicken Burger", "emoji": "🍗", "desc": "Buttermilk fried thigh, slaw, pickles, honey mustard.", "price": 9.49, "tags": ["pop"]},
-  {"id": 7, "cat": "chicken", "name": "Buffalo Wings", "emoji": "🌶️", "desc": "8-piece wings tossed in buffalo sauce with blue cheese dip.", "price": 11.99, "tags": ["spicy"]},
-  {"id": 8, "cat": "chicken", "name": "Honey-Glazed Wings", "emoji": "🍯", "desc": "6-piece wings glazed in honey-soy, sesame seeds.", "price": 10.99, "tags": ["new"]},
-  {"id": 9, "cat": "chicken", "name": "Chicken Tenders", "emoji": "🍟", "desc": "4 golden tenders, choice of dipping sauce.", "price": 7.99, "tags": []},
-  {"id": 10, "cat": "chicken", "name": "Korean Fried Chicken", "emoji": "🥢", "desc": "Double-fried thighs, gochujang glaze, sesame.", "price": 12.49, "tags": ["spicy", "new"]},
-  {"id": 11, "cat": "sides", "name": "Loaded Fries", "emoji": "🍟", "desc": "Fries, cheese sauce, bacon bits, green onion.", "price": 6.49, "tags": ["pop"]},
-  {"id": 12, "cat": "sides", "name": "Onion Rings", "emoji": "🧅", "desc": "Beer-battered rings with smoky ketchup.", "price": 5.49, "tags": []},
-  {"id": 13, "cat": "sides", "name": "Cole Slaw", "emoji": "🥗", "desc": "Creamy slaw with apple and celery seed.", "price": 3.99, "tags": []},
-  {"id": 14, "cat": "sides", "name": "Mac & Cheese", "emoji": "🧀", "desc": "Three-cheese mac, breadcrumb crust.", "price": 6.99, "tags": []},
-  {"id": 15, "cat": "drinks", "name": "Iced Cola", "emoji": "🥤", "desc": "Classic cola over ice.", "price": 2.99, "tags": []},
-  {"id": 16, "cat": "drinks", "name": "Vanilla Shake", "emoji": "🍦", "desc": "Hand-spun vanilla shake, whipped cream.", "price": 5.49, "tags": ["pop"]},
-  {"id": 17, "cat": "drinks", "name": "Fresh Lemonade", "emoji": "🍋", "desc": "Freshly squeezed, mint garnish.", "price": 4.49, "tags": ["new"]},
-  {"id": 18, "cat": "drinks", "name": "Iced Tea", "emoji": "🫖", "desc": "Peach iced tea, lightly sweetened.", "price": 3.49, "tags": []},
-  {"id": 19, "cat": "desserts", "name": "Choco Lava Cake", "emoji": "🍫", "desc": "Warm lava cake with vanilla ice cream.", "price": 6.49, "tags": ["pop"]},
-  {"id": 20, "cat": "desserts", "name": "Cheesecake Slice", "emoji": "🍰", "desc": "New York style, berry compote.", "price": 5.99, "tags": []},
-  {"id": 21, "cat": "desserts", "name": "Apple Pie Bites", "emoji": "🥧", "desc": "Cinnamon apple bites, caramel drizzle.", "price": 4.99, "tags": ["new"]},
+  {id:1,cat:'burgers',name:'Classic Smash',emoji:'🍔',desc:'Double smash patty, cheddar, pickles, secret sauce, toasted bun.',price:180,tags:['pop']},
+  {id:2,cat:'burgers',name:'Bacon Inferno',emoji:'🔥',desc:'Beef patty, crispy bacon, pepper jack, jalapeños, chipotle mayo.',price:220,tags:['spicy','pop']},
+  {id:3,cat:'burgers',name:'Truffle Umami',emoji:'🍄',desc:'Wagyu patty, truffle aioli, gruyère, caramelised onions.',price:290,tags:['new']},
+  {id:4,cat:'burgers',name:'Garden Light',emoji:'🥬',desc:'Plant-based patty, vegan cheese, avocado, herb dressing.',price:200,tags:[]},
+  {id:5,cat:'burgers',name:'BBQ Smokehouse',emoji:'🥩',desc:'Brisket blend, smoky BBQ, onion rings, coleslaw.',price:240,tags:[]},
+  {id:6,cat:'chicken',name:'Crispy Chicken Burger',emoji:'🍗',desc:'Buttermilk fried thigh, slaw, pickles, honey mustard.',price:200,tags:['pop']},
+  {id:7,cat:'chicken',name:'Buffalo Wings',emoji:'🌶️',desc:'8-piece wings tossed in buffalo sauce with blue cheese dip.',price:230,tags:['spicy']},
+  {id:8,cat:'chicken',name:'Honey-Glazed Wings',emoji:'🍯',desc:'6-piece wings glazed in honey-soy, sesame seeds.',price:220,tags:['new']},
+  {id:9,cat:'chicken',name:'Chicken Tenders',emoji:'🍟',desc:'4 golden tenders, choice of dipping sauce.',price:160,tags:[]},
+  {id:10,cat:'chicken',name:'Korean Fried Chicken',emoji:'🥢',desc:'Double-fried thighs, gochujang glaze, sesame.',price:260,tags:['spicy','new']},
+  {id:11,cat:'sides',name:'Loaded Fries',emoji:'🍟',desc:'Fries, cheese sauce, bacon bits, green onion.',price:120,tags:['pop']},
+  {id:12,cat:'sides',name:'Onion Rings',emoji:'🧅',desc:'Beer-battered rings with smoky ketchup.',price:100,tags:[]},
+  {id:13,cat:'sides',name:'Cole Slaw',emoji:'🥗',desc:'Creamy slaw with apple and celery seed.',price:70,tags:[]},
+  {id:14,cat:'sides',name:'Mac & Cheese',emoji:'🧀',desc:'Three-cheese mac, breadcrumb crust.',price:130,tags:[]},
+  {id:15,cat:'drinks',name:'Iced Cola',emoji:'🥤',desc:'Classic cola over ice.',price:60,tags:[]},
+  {id:16,cat:'drinks',name:'Vanilla Shake',emoji:'🍦',desc:'Hand-spun vanilla shake, whipped cream.',price:110,tags:['pop']},
+  {id:17,cat:'drinks',name:'Fresh Lemonade',emoji:'🍋',desc:'Freshly squeezed, mint garnish.',price:90,tags:['new']},
+  {id:18,cat:'drinks',name:'Iced Tea',emoji:'🫖',desc:'Peach iced tea, lightly sweetened.',price:70,tags:[]},
+  {id:19,cat:'desserts',name:'Choco Lava Cake',emoji:'🍫',desc:'Warm lava cake with vanilla ice cream.',price:130,tags:['pop']},
+  {id:20,cat:'desserts',name:'Cheesecake Slice',emoji:'🍰',desc:'New York style, berry compote.',price:120,tags:[]},
+  {id:21,cat:'desserts',name:'Apple Pie Bites',emoji:'🥧',desc:'Cinnamon apple bites, caramel drizzle.',price:100,tags:['new']},
 ];
 const DEFAULT_SPECIALS = [
   {num:'01',title:'Double Volcano Burger',desc:'Two smash patties, ghost-pepper cheese, crispy onions, volcanic sauce.'},
@@ -350,15 +347,15 @@ const DEFAULT_SPECIALS = [
   {num:'03',title:'Midnight Combo',desc:'After 9pm: classic burger + chicken tenders + drink at a flat price.'},
 ];
 const DEFAULT_SIDES = ['Fries','Shakes','Salad','Dips','Cookies','Iced Tea'];
-let SPECIALS = loadJSON('lb_specials_v2', DEFAULT_SPECIALS.map(x=>Object.assign({},x)));
+let SPECIALS = loadJSON('lb_specials_v1', DEFAULT_SPECIALS.map(x=>Object.assign({},x)));
 if(!Array.isArray(SPECIALS)) SPECIALS = DEFAULT_SPECIALS.map(x=>Object.assign({},x));
-let SIDES = loadJSON('lb_sides_v2', DEFAULT_SIDES.slice());
+let SIDES = loadJSON('lb_sides_v1', DEFAULT_SIDES.slice());
 if(!Array.isArray(SIDES)) SIDES = DEFAULT_SIDES.slice();
-let CATEGORIES = loadJSON('lb_cats_v3', DEFAULT_CATS.map(c=>Object.assign({},c)));
+let CATEGORIES = loadJSON('lb_cats_v2', DEFAULT_CATS.map(c=>Object.assign({},c)));
 if(!Array.isArray(CATEGORIES)) CATEGORIES = DEFAULT_CATS.map(c=>Object.assign({},c));
-let MENU = loadJSON('lb_menu_v3', DEFAULT_MENU.slice());
+let MENU = loadJSON('lb_menu_v2', DEFAULT_MENU.slice());
 if(!Array.isArray(MENU)) MENU = DEFAULT_MENU.slice();
-let BG = loadJSON('lb_bg_v3', {});
+let BG = loadJSON('lb_bg_v2', {});
 if(typeof BG!=='object' || Array.isArray(BG)) BG = {};
 if(!BG.all) BG.all = 'https://picsum.photos/seed/lb-all/1920/700';
 CATEGORIES.forEach(c=>{ if(!BG[c.slug]) BG[c.slug]=c.bg; });
@@ -535,8 +532,8 @@ refreshRatings();
 const footerMenuLinks = document.getElementById('footerMenuLinks');
 if(footerMenuLinks) footerMenuLinks.innerHTML = '<li><a href="?cat=all#menu">All dishes</a></li>' + CATEGORIES.filter(c=>!c.hidden).map(c=>`<li><a href="?cat=${c.slug}#menu">${c.icon||''} ${c.title}</a></li>`).join('');
 // sync
-window.addEventListener('storage', ()=>{ CATEGORIES=loadJSON('lb_cats_v3',CATEGORIES); MENU=loadJSON('lb_menu_v3',MENU); BG=loadJSON('lb_bg_v3',BG); if(!BG.all) BG.all='https://picsum.photos/seed/lb-all/1920/700'; CATEGORIES.forEach(c=>{if(!BG[c.slug]) BG[c.slug]=c.bg;}); renderFilters(); renderGrid(); refreshRatings(); });
-document.addEventListener('visibilitychange', ()=>{ if(!document.hidden){ CATEGORIES=loadJSON('lb_cats_v3',CATEGORIES); MENU=loadJSON('lb_menu_v3',MENU); BG=loadJSON('lb_bg_v3',BG); renderFilters(); renderGrid(); refreshRatings(); } });
+window.addEventListener('storage', ()=>{ CATEGORIES=loadJSON('lb_cats_v2',CATEGORIES); MENU=loadJSON('lb_menu_v2',MENU); BG=loadJSON('lb_bg_v2',BG); if(!BG.all) BG.all='https://picsum.photos/seed/lb-all/1920/700'; CATEGORIES.forEach(c=>{if(!BG[c.slug]) BG[c.slug]=c.bg;}); renderFilters(); renderGrid(); refreshRatings(); });
+document.addEventListener('visibilitychange', ()=>{ if(!document.hidden){ CATEGORIES=loadJSON('lb_cats_v2',CATEGORIES); MENU=loadJSON('lb_menu_v2',MENU); BG=loadJSON('lb_bg_v2',BG); renderFilters(); renderGrid(); refreshRatings(); } });
 // preloader
 const prefill = document.getElementById('pre-fill');
 const preLogoImg = document.getElementById('preLogoImg');
