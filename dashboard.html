@@ -1373,6 +1373,47 @@ rebuildCatLabels(); renderFilters(); populateCategorySelect();
 
 renderGrid();
 
+// Load newest menu from source storage (Vercel) if available
+(async function loadSourceMenu() {
+  try {
+    const res = await fetch('/data/menu.json', { cache: 'no-store' });
+    if (res.ok) {
+      const d = await res.json();
+      if (d && Array.isArray(d.menu)) {
+        MENU = d.menu.map(function (x) { return Object.assign({}, x, { tags: Array.isArray(x.tags) ? x.tags.slice() : [] }); });
+        if (d.backgrounds && typeof d.backgrounds === 'object') Object.assign(BG, d.backgrounds);
+        try { saveJSON('lb_menu_v3', MENU); } catch (e) {}
+        try { saveJSON('lb_bg_v3', BG); } catch (e) {}
+        renderGrid();
+        if (typeof renderAdmin === 'function' && document.getElementById('adminOverlay') && document.getElementById('adminOverlay').classList.contains('open')) renderAdmin();
+        if (typeof updateAdminBadge === 'function') updateAdminBadge();
+      }
+    }
+  } catch (e) {
+    // Local/offline mode: keep embedded fallback
+  }
+})();
+
+// Auto-publish dashboard edits to source (GitHub -> Vercel) when configured
+var _sourcePublishTimer = null;
+function publishMenuToSource() {
+  clearTimeout(_sourcePublishTimer);
+  _sourcePublishTimer = setTimeout(function () {
+    fetch('/api/save-menu', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Publish-Token': 'lightadmin' },
+      body: JSON.stringify({ menu: MENU, backgrounds: BG, categories: CATEGORIES, specials: SPECIALS, sides: SIDES }),
+    }).catch(function (e) { console.warn('Source publish failed:', e); });
+  }, 2000);
+}
+try {
+  if (typeof saveMenu === 'function') saveMenu = (function (orig) { return function () { orig(); publishMenuToSource(); }; })(saveMenu);
+  if (typeof saveBg === 'function') saveBg = (function (orig) { return function () { orig(); publishMenuToSource(); }; })(saveBg);
+  if (typeof saveCats === 'function') saveCats = (function (orig) { return function () { orig(); publishMenuToSource(); }; })(saveCats);
+  if (typeof saveSpecials === 'function') saveSpecials = (function (orig) { return function () { orig(); publishMenuToSource(); }; })(saveSpecials);
+  if (typeof saveSides === 'function') saveSides = (function (orig) { return function () { orig(); publishMenuToSource(); }; })(saveSides);
+} catch (e) { console.warn('Could not wrap publish functions:', e); }
+
 </script>
 </body>
 </html>

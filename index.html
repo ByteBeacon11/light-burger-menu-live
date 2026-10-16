@@ -534,6 +534,25 @@ if(footerMenuLinks) footerMenuLinks.innerHTML = '<li><a href="?cat=all#menu">All
 // sync
 window.addEventListener('storage', ()=>{ CATEGORIES=loadJSON('lb_cats_v2',CATEGORIES); MENU=loadJSON('lb_menu_v2',MENU); BG=loadJSON('lb_bg_v2',BG); if(!BG.all) BG.all='https://picsum.photos/seed/lb-all/1920/700'; CATEGORIES.forEach(c=>{if(!BG[c.slug]) BG[c.slug]=c.bg;}); renderFilters(); renderGrid(); refreshRatings(); });
 document.addEventListener('visibilitychange', ()=>{ if(!document.hidden){ CATEGORIES=loadJSON('lb_cats_v2',CATEGORIES); MENU=loadJSON('lb_menu_v2',MENU); BG=loadJSON('lb_bg_v2',BG); renderFilters(); renderGrid(); refreshRatings(); } });
+// Load newest menu from source storage (Vercel) if available
+(async function loadSourceMenu() {
+  try {
+    const res = await fetch('/data/menu.json', { cache: 'no-store' });
+    if (res.ok) {
+      const d = await res.json();
+      if (d && Array.isArray(d.menu)) {
+        MENU = d.menu.map(function (x) { return Object.assign({}, x, { tags: Array.isArray(x.tags) ? x.tags.slice() : [] }); });
+        if (d.backgrounds && typeof d.backgrounds === 'object') Object.assign(BG, d.backgrounds);
+        try { saveJSON('lb_menu_v2', MENU); } catch (e) {}
+        try { saveJSON('lb_bg_v2', BG); } catch (e) {}
+        renderGrid();
+        try { refreshRatings(); } catch (e) {}
+      }
+    }
+  } catch (e) {
+    // Local/offline mode: keep embedded fallback
+  }
+})();
 // preloader
 const prefill = document.getElementById('pre-fill');
 const preLogoImg = document.getElementById('preLogoImg');
